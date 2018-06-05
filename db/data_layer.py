@@ -46,6 +46,10 @@ def get_all_tasks(project_id):
     db = DbManager()
     return db.open().query(Task).filter(Task.project_id == project_id).all()
 
+def get_task(task_id):
+    db = DbManager()
+    return db.open().query(Task).filter(Task.id == task_id).one()
+
 def update_task(task_id, description):
     db = DbManager()
     task = db.open().query(Task).filter(Task.id == task_id).one()
